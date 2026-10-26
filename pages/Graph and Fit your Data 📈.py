@@ -97,9 +97,9 @@ if mode == "upload data file":
         if uploaded_file.name.endswith(".xlsx"):
             df = pd.read_excel(uploaded_file)
         elif uploaded_file.name.endswith(".txt"):
-            df = pd.read_csv(uploaded_file, sep="\s+")
+            df = pd.read_csv(uploaded_file, sep="\s+", comment="#")
         else:
-            df = pd.read_csv(uploaded_file, sep=",")
+            df = pd.read_csv(uploaded_file, sep=",", comment="#")
         preview = st.checkbox("preview data", value=False)
         if preview:
             st.dataframe(df.head(), hide_index=True)
